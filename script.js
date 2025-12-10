@@ -7,7 +7,7 @@ function generateName() {
   let name = "";
 
   //-------------------------------------------------------
-  // SPECIAL NAMING RULES FROM CITY OF CALGARY DOCUMENT
+  // SPECIAL NAMING RULES
   //-------------------------------------------------------
 
   // 1. STORAGE ACCOUNT — no hyphens, concatenated
@@ -59,3 +59,4 @@ function generateName() {
 
   document.getElementById("result").textContent = name;
 }
+
