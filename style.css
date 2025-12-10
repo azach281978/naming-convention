@@ -1,7 +1,7 @@
 /* Overall Page */
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5; /* Light grey, similar to Calgary.ca background */
+  background: #f5f5f5; 
   padding: 40px;
   color: #333;
 }
@@ -14,13 +14,13 @@ body {
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-  border-top: 6px solid #D6001C; /* Calgary Red accent */
+  border-top: 6px solid #D6001C; 
 }
 
 /* Heading */
 h2 {
   text-align: center;
-  color: #D6001C; /* Calgary Red */
+  color: #D6001C; 
   margin-bottom: 25px;
 }
 
@@ -68,7 +68,7 @@ select:focus {
 button {
   width: 100%;
   padding: 12px;
-  background: #D6001C; /* Calgary Red */
+  background: #D6001C;
   color: white;
   font-size: 15px;
   border: none;
@@ -95,3 +95,4 @@ button:hover {
   text-align: center;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
 }
+
