@@ -1,175 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Azure Resource Naming Generator</title>
+  <meta charset="utf-8">
+  <title>Azure Naming Generator</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>Azure Resource Naming Generator</h2>
+  <h2>Azure Resource Naming Generator</h2>
 
-<div class="container">
+  <div class="container">
 
-  <label>Environment</label>
-  <select id="environment">
-    <option value="prd">Production</option>
-    <option value="tst">Test</option>
-    <option value="dev">Development</option>
-  </select>
+    <!-- Environment -->
+    <label>Environment <span class="required">*</span></label>
+    <select id="environment">
+      <option value="">Select environment</option>
+      <option value="prd">Production</option>
+      <option value="tst">Test</option>
+      <option value="dev">Development</option>
+    </select>
 
-  <label>Workload</label>
-  <input id="workload" placeholder="e.g., elections">
+    <!-- Workload -->
+    <label>Workload <span class="required">*</span></label>
+    <input id="workload" placeholder="e.g., elections">
 
-  <label>Resource Type</label>
-  <select id="resource">
+    <!-- Resource Type -->
+    <label>Resource Type <span class="required">*</span></label>
+    <select id="resource">
+      <option value="">Select a resource</option>
+      <option value="subscription">Subscription</option>
+      <option value="rg">Resource Group</option>
 
-    <!-- Compute -->
-    <optgroup label="Compute">
-      <option value="vm">Virtual Machine</option>
-      <option value="sqlvm">SQL Virtual Machine</option>
-      <option value="vmss">Virtual Machine Scale Set</option>
-      <option value="hp">AVD Host Pool</option>
-      <option value="workspace">AVD Workspace</option>
-      <option value="image">VM Image Definition</option>
-      <option value="imageversion">VM Image Version</option>
-      <option value="snapshot">Snapshot</option>
-      <option value="arcserver">Azure Arc Server</option>
-    </optgroup>
+      <optgroup label="Compute">
+        <option value="vm">Virtual Machine</option>
+        <option value="nic">Regular Network Interface</option>
+        <option value="os">OS Disk</option>
+        <option value="data">Data Disk</option>
+        <option value="avset">Availability Set</option>
+        <option value="sqlvm">SQL Virtual Machine</option>
+        <option value="vmss">Virtual Machine Scale Set</option>
+        <option value="vmimage">VM image definition</option>
+        <option value="imageversion">VM image version</option>
+        <option value="image">Image</option>
+        <option value="snapshot">Snapshot</option>
+        <option value="arcserver">Server - Azure Arc</option>
+        <option value="hp">Host pool</option>
+        <option value="workspace">Workspace</option>
+      </optgroup>
 
-    <!-- Storage -->
-    <optgroup label="Storage">
-      <option value="sa">Storage Account</option>
-      <option value="gallery">Azure Compute Gallery</option>
-      <option value="workbook">Azure Workbook (GUID)</option>
-    </optgroup>
+      <optgroup label="Networking">
+        <option value="vnet">Virtual Network</option>
+        <option value="vnetgw">Virtual network gateway</option>
+        <option value="ip">Public IP Address</option>
+        <option value="tunnel">Connection</option>
+        <option value="lnetgw">Local Network Gateway</option>
+        <option value="lb">Load balancer</option>
+        <option value="nsg">Network security group</option>
+        <option value="networkwatcher">Network Watcher</option>
+        <option value="nsgflow">NSG Flow log</option>
+        <option value="privatedns">Private DNS zone</option>
+        <option value="pe">Private endpoint</option>
+        <option value="rt">Route table</option>
+        <option value="tm">Traffic Manager profile</option>
+        <option value="endpoint">Endpoint</option>
+        <option value="cdn">Front Door and CDN profiles</option>
+      </optgroup>
 
-    <!-- Networking -->
-    <optgroup label="Networking">
-      <option value="nic">Network Interface</option>
-      <option value="os">OS Disk</option>
-      <option value="data">Data Disk</option>
-      <option value="avset">Availability Set</option>
-      <option value="vnet">Virtual Network</option>
-      <option value="vnetgw">Virtual Network Gateway</option>
-      <option value="lnetgw">Local Network Gateway</option>
-      <option value="ip">Public IP Address</option>
-      <option value="rt">Route Table</option>
-      <option value="nsg">Network Security Group</option>
-      <option value="nsgflow">NSG Flow Log</option>
-      <option value="tm">Traffic Manager Profile</option>
-      <option value="endpoint">Endpoint</option>
-      <option value="pe">Private Endpoint</option>
-      <option value="networkwatcher">Network Watcher</option>
-      <option value="privatedns">Private DNS Zone</option>
-    </optgroup>
+      <optgroup label="Storage & Backup">
+        <option value="sa">Storage Account</option>
+        <option value="gallery">Azure compute gallery</option>
+        <option value="rsv">Recovery Services vault</option>
+        <option value="restore">Restore Point Collection</option>
+      </optgroup>
 
-    <!-- Identity -->
-    <optgroup label="Identity & Access">
-      <option value="mi">Managed Identity</option>
-      <option value="pls">Azure Arc Private Link Scope</option>
-      <option value="b2c">Azure AD B2C Tenant</option>
-    </optgroup>
+      <optgroup label="Web & App Services">
+        <option value="app">App Service</option>
+        <option value="asp">App Service Plan</option>
+        <option value="appi">Application Insights</option>
+        <option value="fa">Function App</option>
+        <option value="swa">Static Web App</option>
+        <option value="bot">Web App Bot</option>
+      </optgroup>
 
-    <!-- Integration -->
-    <optgroup label="Integration">
-      <option value="fa">Function App</option>
-      <option value="la">Logic App</option>
-      <option value="apim">API Management Service</option>
-      <option value="api">API Connection</option>
-      <option value="runbook">Runbook</option>
-      <option value="dcr">Data Collection Rule</option>
-    </optgroup>
+      <optgroup label="Analytics & Monitoring">
+        <option value="spark">Apache Spark pool</option>
+        <option value="adx">Azure Data Explorer Cluster</option>
+        <option value="law">Log Analytics workspace</option>
+        <option value="logquery">Log Analytics query pack</option>
+        <option value="saj">Stream Analytics job</option>
+        <option value="solution">Solution</option>
+        <option value="tsi">Time Series Insights environment</option>
+        <option value="tsisource">Time Series Insights event source</option>
+        <option value="synapse">Synapse workspace</option>
+        <option value="plhub">Synapse private link hub</option>
+      </optgroup>
 
-    <!-- Databases -->
-    <optgroup label="Databases">
-      <option value="sql">SQL Database</option>
-      <option value="sqlsrv">SQL Server</option>
-      <option value="cosmos">Azure Cosmos DB Account</option>
-      <option value="mariadb">Azure Database for MariaDB</option>
-      <option value="mysql">Azure Database for MySQL Flexible Server</option>
-      <option value="dbmigration">Database Migration Project</option>
-      <option value="dbmigrationservice">Database Migration Service</option>
-    </optgroup>
+      <optgroup label="Databases & Data">
+        <option value="sql">SQL database</option>
+        <option value="sqlsrv">SQL server</option>
+        <option value="cosmos">Azure Cosmos DB account</option>
+        <option value="mariadb">Azure Database for MariaDB server</option>
+        <option value="mysql">Azure Database for MySQL flexible server</option>
+        <option value="dbmigration">Azure Database Migration Project</option>
+        <option value="dbmigrationservice">Azure Database Migration Service</option>
+        <option value="databricks">Azure Databricks Service</option>
+      </optgroup>
 
-    <!-- Analytics -->
-    <optgroup label="Analytics">
-      <option value="spark">Apache Spark Pool</option>
-      <option value="adx">Azure Data Explorer Cluster</option>
-      <option value="law">Log Analytics Workspace</option>
-      <option value="logquery">Log Analytics Query Pack</option>
-      <option value="saj">Stream Analytics Job</option>
-      <option value="solution">Solution</option>
-      <option value="tsisource">Time Series Insights Event Source</option>
-      <option value="tsi">Time Series Insights Environment</option>
-    </optgroup>
+      <optgroup label="Integration & Messaging">
+        <option value="api">API Connection</option>
+        <option value="apim">API Management service</option>
+        <option value="dag">Application group</option>
+        <option value="aa">Automation Account</option>
+        <option value="pls">Azure Arc Private Link Scope</option>
+        <option value="dcr">Data collection rule</option>
+        <option value="la">Logic app</option>
+        <option value="runbook">Runbook</option>
+        <option value="scaling">Scaling plan</option>
+        <option value="search">Search service</option>
+        <option value="bus">Service Bus Namespace</option>
+        <option value="hubns">Event Hubs Namespace</option>
+        <option value="iothub">IoT Hub</option>
+        <option value="shc">Services Hub Connector</option>
+        <option value="dashboard">Shared dashboard</option>
+      </optgroup>
 
-    <!-- Synapse -->
-    <optgroup label="Synapse">
-      <option value="synapse">Synapse Workspace</option>
-      <option value="plhub">Synapse Private Link Hub</option>
-    </optgroup>
+      <optgroup label="AI & ML">
+        <option value="ml">Azure Machine Learning</option>
+        <option value="cv">Computer vision</option>
+        <option value="contentmoderator">Content moderator</option>
+        <option value="lang">Language</option>
+        <option value="luis">Language understanding</option>
+        <option value="qna">QnA maker</option>
+      </optgroup>
 
-    <!-- AI / ML -->
-    <optgroup label="AI & ML">
-      <option value="ml">Azure Machine Learning</option>
-      <option value="cv">Computer Vision</option>
-      <option value="contentmoderator">Content Moderator</option>
-      <option value="lang">Language</option>
-      <option value="luis">Language Understanding</option>
-      <option value="qna">QnA Maker</option>
-    </optgroup>
+      <optgroup label="Identity & Security">
+        <option value="mi">Managed Identity</option>
+        <option value="workbook">Azure Workbook</option>
+        <option value="b2c">B2C Tenant</option>
+        <option value="purview">Microsoft Purview</option>
+        <option value="kv">Key vault</option>
+      </optgroup>
 
-    <!-- Containers -->
-    <optgroup label="Containers">
-      <option value="aci">Container Instances</option>
-      <option value="acr">Container Registry</option>
-    </optgroup>
+      <optgroup label="Containers & DevOps">
+        <option value="aci">Container instances</option>
+        <option value="acr">Container registry</option>
+        <option value="devops">Azure DevOps organization</option>
+      </optgroup>
 
-    <!-- DevOps -->
-    <optgroup label="DevOps">
-      <option value="devops">Azure DevOps Organization</option>
-    </optgroup>
+    </select>
 
-    <!-- Messaging -->
-    <optgroup label="Messaging">
-      <option value="bus">Service Bus Namespace</option>
-      <option value="hubns">Event Hubs Namespace</option>
-    </optgroup>
+    <!-- Instance count -->
+    <label>Number of Instances <span class="required">*</span></label>
+    <small class="hint">How many instances?</small>
+    <input id="instanceCount" value="1">
 
-    <!-- Security -->
-    <optgroup label="Security & Governance">
-      <option value="rsv">Recovery Services Vault</option>
-      <option value="restore">Restore Point Collection</option>
-      <option value="dashboard">Shared Dashboard</option>
-      <option value="purview">Microsoft Purview</option>
-      <option value="search">Search Service</option>
-      <option value="shc">Services Hub Connector</option>
-      <option value="scaling">Scaling Plan</option>
-    </optgroup>
+    <!-- Generate button -->
+    <button onclick="generateName()">Generate Name</button>
 
-    <!-- Web -->
-    <optgroup label="Web & App Services">
-      <option value="app">App Service</option>
-      <option value="asp">App Service Plan</option>
-      <option value="appi">Application Insights</option>
-      <option value="swa">Static Web App</option>
-      <option value="bot">Web App Bot</option>
-    </optgroup>
+    <!-- Result and copy icon -->
+    <div id="resultBox">
+      <span id="result"></span>
+      <button id="copyIcon" type="button" onclick="copyName()" title="Copy name"></button>
+    </div>
 
-  </select>
 
-  <label>Instance Number</label>
-  <input id="instance" value="01">
+    <!-- Errors under result, centered -->
+    <div id="errors" class="errors"></div>
 
-  <button onclick="generateName()">Generate Name</button>
+  </div>
 
-  <p id="result"></p>
-
-</div>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
-
